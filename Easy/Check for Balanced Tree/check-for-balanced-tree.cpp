@@ -120,7 +120,6 @@ class Solution{
     
     bool isBalanced(Node *root)
     {
-        //  Your Code here
        return dfsheight(root) != -1;   
     }
     
