@@ -1,5 +1,5 @@
 # gfg-podt
-# "GFG PODT  with my approch!!"
+# "GFG PODT  with my approch!!" [Solution](https://github.com/theprince29/gfg-podt/blob/main/Easy/Recamans%20sequence/recamans-sequence.cpp)
 
 <h2><a href="https://www.geeksforgeeks.org/problems/recamans-sequence4856/1">Recamans sequence</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 14pt;">Given an integer <strong>n</strong>, return the first n elements of <a href="http://mathworld.wolfram.com/RecamansSequence.html"><span style="text-decoration: underline;"><em><strong><span style="color: #236fa1; text-decoration: underline;">Recaman’s sequence</span></strong></em></span></a>.<br>It is a function with domain and co-domain as whole numbers. It is recursively defined as below:<br>Specifically, let a(n) denote the (n+1)<sup>th</sup> term. (0 being the 1<sup>st</sup> term).<br>The rule says:<br></span><span style="font-size: 14pt;">a(0) = 0<br>a(n) = a(n-1) - n, if a(n-1) - n &gt; 0 and is not included in the sequence previously<br>&nbsp; &nbsp; &nbsp; &nbsp;=&nbsp; a(n-1) + n otherwise. </span></p>
 <p><span style="font-size: 14pt;"><strong>Example 1:</strong></span></p>
