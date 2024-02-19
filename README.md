@@ -17,45 +17,45 @@
 <p><span style="font-size: 18px;"><strong>Constraints:</strong><br>0 ≤ k ≤ |string length| ≤ 10<sup>5</sup></span></p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Amazon</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Strings</code>&nbsp;<code>Heap</code>&nbsp;<code>Data Structures</code>&nbsp;
   
   ```
-    class Solution{
-public:
-    int minValue(string s, int k){
-        // code here
-        unordered_map<char,int>mp;
-        for(int i=0;i<s.length();i++)
-        {
-            mp[s[i]]++;
-        }
-        
-        priority_queue<int>pq;
-        for(auto x:mp)
-        {
-            if(x.second != 0)
-            {
-                pq.push(x.second);
-            }
-        }
-        
-        
-        for(int i=0;i<k;i++)
-        {
-            int a = pq.top();
-            pq.pop();
-            
-            a--;
-            if(a>0){
-                pq.push(a);
-                
-            }
-        }
-        
-        
-      int minValue = 0;
-        while(!pq.empty()) {
-            minValue += pq.top() * pq.top();
-            pq.pop();
-        }
-      return minValue;  
-    }
-};
+  class Solution{
+  public:
+      int minValue(string s, int k){
+          // code here
+          unordered_map<char,int>mp;
+          for(int i=0;i<s.length();i++)
+          {
+              mp[s[i]]++;
+          }
+          
+          priority_queue<int>pq;
+          for(auto x:mp)
+          {
+              if(x.second != 0)
+              {
+                  pq.push(x.second);
+              }
+          }
+          
+          
+          for(int i=0;i<k;i++)
+          {
+              int a = pq.top();
+              pq.pop();
+              
+              a--;
+              if(a>0){
+                  pq.push(a);
+                  
+              }
+          }
+          
+          
+        int minValue = 0;
+          while(!pq.empty()) {
+              minValue += pq.top() * pq.top();
+              pq.pop();
+          }
+        return minValue;  
+      }
+  };
   ```
