@@ -1,4 +1,4 @@
-# gfg-podt 12/02/2024
+# gfg-podt 19/02/2024
 # "GFG PODT  with my approch!!"  -> [Solution](https://github.com/theprince29/gfg-podt/blob/main/Medium/Game%20with%20String/game-with-string.cpp)
 
 <h2><a href="https://www.geeksforgeeks.org/problems/game-with-string4100/1">Game with String</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a string <strong>s</strong> of lowercase alphabets and a number <strong>k</strong>, the task is to print the minimum value of the string after removal of <strong>k</strong> characters. The value of a string is defined as the sum of squares of the count of each distinct character present in the string.</span>&nbsp;</p>
