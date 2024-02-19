@@ -1,65 +1,61 @@
 # gfg-podt 12/02/2024
-# "GFG PODT  with my approch!!"  -> [Solution](https://github.com/theprince29/gfg-podt/blob/main/Easy/Recursive%20sequence/recursive-sequence.cpp)
+# "GFG PODT  with my approch!!"  -> [Solution](https://github.com/theprince29/gfg-podt/blob/main/Medium/Game%20with%20String/game-with-string.cpp)
 
-<h2><a href="https://www.geeksforgeeks.org/problems/recursive-sequence1611/1">Recursive sequence</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">A function <strong>F</strong> is defined as follows <strong>F(n)= (1) +(2*3) + (4*5*6) ... upto n terms </strong>(look at the examples for better clarity). Given an integer <strong>n,</strong>&nbsp;determine the <strong>F(n)</strong>.</span></p>
-<p><span style="font-size: 14pt;"><strong>Note: </strong>As the answer can be very large, return the answer modulo <strong>10<sup>9</sup>+7</strong>.</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/game-with-string4100/1">Game with String</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a string <strong>s</strong> of lowercase alphabets and a number <strong>k</strong>, the task is to print the minimum value of the string after removal of <strong>k</strong> characters. The value of a string is defined as the sum of squares of the count of each distinct character present in the string.</span>&nbsp;</p>
 <p><strong><span style="font-size: 18px;">Example 1:</span></strong></p>
-<pre><span style="font-size: 18px;"><strong>Input:</strong> n = 5
-<strong>Output:</strong> 365527
-<strong>Explanation:</strong> <br>F(5) = 1 + 2*3 + 4*5*6 + 7*8*9*10 + 11*12*13*14*15 = 365527.</span></pre>
+<pre><span style="font-size: 18px;"><strong>Input:</strong> <br>s = abccc, k = 1
+<strong>Output:</strong> <br>6
+<strong>Explaination:
+</strong>We remove c to get the value as 1<sup>2</sup></span><span style="font-size: 18px;"> + 1<sup>2</sup></span><span style="font-size: 18px;"> + 2<sup>2</sup></span>
+</pre>
 <p><strong><span style="font-size: 18px;">Example 2:</span></strong></p>
-<pre><span style="font-size: 18px;"><strong>Input:</strong> n = 7
-<strong>Output:</strong> 6006997207
-<strong>Explanation:</strong> <br>F(5) = 1 + 2*3 + 4*5*6 + 7*8*9*10 + 11*12*13*14*15 + <br>16*17*18*19*20*21 + 22*23*24*25*26*27*28 = 6006997207.<br>6006997207 % 10<sup>9</sup>+7 = 6997165<br></span></pre>
-<p><span style="font-size: 18px;"><strong>Your Task:</strong><br>You do not need to read input or print anything. Your task is to complete the function <strong>sequence()</strong> which takes an integer <strong>n </strong>as an input parameter and returns the value of <strong>F(n).</strong></span></p>
-<p><span style="font-size: 18px;"><strong>Expected Time Complexity:</strong> O(n<sup>2</sup>)<br><strong>Expected Space Complexity:</strong> O(1)</span></p>
-<p><span style="font-size: 18px;"><strong>Constraints:</strong><br>1 ≤ n ≤ 10<sup>3</sup></span></p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>MAQ Software</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Mathematical</code>&nbsp;<code>Recursion</code>&nbsp;<code>Algorithms</code>&nbsp;
-
+<pre><span style="font-size: 18px;"><strong>Input: <br></strong>s = aabcbcbcabcc, k = 3
+<strong>Output:</strong> <br>27
+<strong>Explaination:</strong> <br>We remove two 'c' and one 'b'. Now we get the value as 3<sup>2 </sup>+ 3<sup>2</sup> + 3<sup>2</sup>.</span></pre>
+<p><span style="font-size: 18px;"><strong>Your Task:</strong><br>You do not need to read input or print anything. Your task is to complete the function <strong>minValue()</strong> which takes <strong>s</strong> and <strong>k</strong> as input parameters and returns the minimum possible required value.</span></p>
+<p><span style="font-size: 18px;"><strong>Expected Time Complexity:</strong> O(n+klog(p))&nbsp; where n is the length of string and p is number of distinct alphabets and k number of alphabets to be removed.&nbsp;<br><strong>Expected Auxiliary Space:</strong> O(n)</span></p>
+<p><span style="font-size: 18px;"><strong>Constraints:</strong><br>0 ≤ k ≤ |string length| ≤ 10<sup>5</sup></span></p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Amazon</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Strings</code>&nbsp;<code>Heap</code>&nbsp;<code>Data Structures</code>&nbsp;
+  
   ```
-    //{ Driver Code Starts
-    //Initial Template for C++
-    
-    #include <bits/stdc++.h>
-    using namespace std;
-    
-    // } Driver Code Ends
-    //User function Template for C++
-    
     class Solution{
-    public:
-    int mod = 1e9+7;
-        long long sequence(int n){
-            // code here
-           
-            long long sum =0;
-            int j=0;
-           for(int i=1;i<=n;i++)
-           {
-               
-               long long mul =1;
-               for(int k=1;k<=i;k++)
-               {
-                   mul = ((++j)*mul)%mod;
-               }
-               sum=(sum+mul)%mod;
-           }
-           return sum%mod;
+public:
+    int minValue(string s, int k){
+        // code here
+        unordered_map<char,int>mp;
+        for(int i=0;i<s.length();i++)
+        {
+            mp[s[i]]++;
         }
-    };
-    
-    //{ Driver Code Starts.
-    
-    int main(){
-        int t;
-        cin>>t;
-        while(t--){
-            int N;
-            cin>>N;
+        
+        priority_queue<int>pq;
+        for(auto x:mp)
+        {
+            if(x.second != 0)
+            {
+                pq.push(x.second);
+            }
+        }
+        
+        
+        for(int i=0;i<k;i++)
+        {
+            int a = pq.top();
+            pq.pop();
             
-            Solution ob;
-            cout<<ob.sequence(N)<<endl;
+            a--;
+            if(a>0){
+                pq.push(a);
+                
+            }
         }
-        return 0;
+        
+        
+      int minValue = 0;
+        while(!pq.empty()) {
+            minValue += pq.top() * pq.top();
+            pq.pop();
+        }
+      return minValue;  
     }
-    // } Driver Code Ends
+};
   ```
