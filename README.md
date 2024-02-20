@@ -1,61 +1,51 @@
-# gfg-podt 19/02/2024
-# "GFG PODT  with my approch!!"  -> [Solution](https://github.com/theprince29/gfg-podt/blob/main/Medium/Game%20with%20String/game-with-string.cpp)
+# gfg-podt 20/02/2024
+# "GFG PODT  with my approch!!"  -> [Solution](https://github.com/theprince29/gfg-podt/blob/main/Medium/Word%20Break/word-break.cpp)
 
-<h2><a href="https://www.geeksforgeeks.org/problems/game-with-string4100/1">Game with String</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a string <strong>s</strong> of lowercase alphabets and a number <strong>k</strong>, the task is to print the minimum value of the string after removal of <strong>k</strong> characters. The value of a string is defined as the sum of squares of the count of each distinct character present in the string.</span>&nbsp;</p>
-<p><strong><span style="font-size: 18px;">Example 1:</span></strong></p>
-<pre><span style="font-size: 18px;"><strong>Input:</strong> <br>s = abccc, k = 1
-<strong>Output:</strong> <br>6
-<strong>Explaination:
-</strong>We remove c to get the value as 1<sup>2</sup></span><span style="font-size: 18px;"> + 1<sup>2</sup></span><span style="font-size: 18px;"> + 2<sup>2</sup></span>
-</pre>
-<p><strong><span style="font-size: 18px;">Example 2:</span></strong></p>
-<pre><span style="font-size: 18px;"><strong>Input: <br></strong>s = aabcbcbcabcc, k = 3
-<strong>Output:</strong> <br>27
-<strong>Explaination:</strong> <br>We remove two 'c' and one 'b'. Now we get the value as 3<sup>2 </sup>+ 3<sup>2</sup> + 3<sup>2</sup>.</span></pre>
-<p><span style="font-size: 18px;"><strong>Your Task:</strong><br>You do not need to read input or print anything. Your task is to complete the function <strong>minValue()</strong> which takes <strong>s</strong> and <strong>k</strong> as input parameters and returns the minimum possible required value.</span></p>
-<p><span style="font-size: 18px;"><strong>Expected Time Complexity:</strong> O(n+klog(p))&nbsp; where n is the length of string and p is number of distinct alphabets and k number of alphabets to be removed.&nbsp;<br><strong>Expected Auxiliary Space:</strong> O(n)</span></p>
-<p><span style="font-size: 18px;"><strong>Constraints:</strong><br>0 ≤ k ≤ |string length| ≤ 10<sup>5</sup></span></p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Amazon</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Strings</code>&nbsp;<code>Heap</code>&nbsp;<code>Data Structures</code>&nbsp;
+<h2><a href="https://www.geeksforgeeks.org/problems/word-break1352/1">Word Break</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a string <strong>s </strong>and a dictionary of&nbsp;<strong>n</strong> words <strong>dictionary</strong>, find out if a&nbsp;<strong>s </strong>can be segmented into a space-separated sequence of dictionary words. R</span><span style="font-size: 18px;">eturn 1 if it is possible to break the&nbsp;<strong>s </strong>into a </span><span style="font-size: 18px;">sequence of dictionary words</span><span style="font-size: 18px;">, else return 0.</span><span style="font-size: 18px;">&nbsp;</span></p>
+<p><span style="font-size: 18px;"><strong>Note:</strong>&nbsp;From the dictionary&nbsp;<strong>dictionary </strong>each word can be taken any number of times and in any order.</span></p>
+<p><span style="font-size: 18px;"><strong>Example 1:</strong></span></p>
+<pre><span style="font-size: 18px;"><strong>Input:</strong>
+n = 6<br><span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; white-space: normal;">s</span><strong style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; white-space: normal;"> </strong>= "ilike"<br>dictionary = { "i", "like", "sam", "sung", "samsung", "mobile"}<br><strong>Output:
+</strong>1
+<strong>Explanation:
+</strong>The string can be segmented as "i like".
+</span></pre>
+<p><span style="font-size: 18px;"><strong>Example 2:</strong></span></p>
+<pre><span style="font-size: 18px;"><strong>Input</strong>:
+n = 6<br><span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; white-space: normal;">s</span><strong style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; white-space: normal;"> </strong>= "ilikesamsung"<br></span><span style="font-size: 18px;">dictionary = { "i", "like", "sam", "sung", "samsung", "mobile"}
+<strong>Output:
+</strong>1
+<strong>Explanation</strong>:
+The string can be segmented as 
+"i like samsung" or "i like sam sung".
+</span></pre>
+<p><span style="font-size: 18px;"><strong>Your Task:</strong><br>Complete&nbsp;<strong>wordBreak()</strong>&nbsp;function which takes a string and list of strings as a parameter&nbsp;and returns 1 if it is possible to break words, else return&nbsp;0. You don't need to read any input or print any output, it is done by driver code.</span></p>
+<p><span style="font-size: 18px;"><strong>Expected Time Complexity: </strong>O(len(<strong>s</strong>)<sup>2</sup>)<br></span><span style="font-size: 18px;"><strong>Expected Space Complexity:</strong>&nbsp;O(len(<strong>s</strong>))</span></p>
+<p><span style="font-size: 18px;"><strong>Constraints</strong>:<br>1 ≤ n ≤ 12<br>1 ≤ len(s) ≤ 1100</span></p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Zoho</code>&nbsp;<code>Flipkart</code>&nbsp;<code>Amazon</code>&nbsp;<code>Microsoft</code>&nbsp;<code>Hike</code>&nbsp;<code>Walmart</code>&nbsp;<code>MAQ Software</code>&nbsp;<code>Google</code>&nbsp;<code>IBM</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Dynamic Programming</code>&nbsp;<code>Algorithms</code>&nbsp;
   
   ```
-  class Solution{
+  class Solution
+  {
   public:
-      int minValue(string s, int k){
-          // code here
-          unordered_map<char,int>mp;
-          for(int i=0;i<s.length();i++)
-          {
-              mp[s[i]]++;
-          }
-          
-          priority_queue<int>pq;
-          for(auto x:mp)
-          {
-              if(x.second != 0)
-              {
-                  pq.push(x.second);
+      int help(int i,string s,set<string>&dis){
+          if(i==s.size())return 1;
+          string temp;
+          for(int j=i; j<s.size(); j++){
+              temp+=s[j];
+              if(dis.find(temp)!=dis.end()){
+                  if(help(j+1,s,dis))return 1;
               }
           }
-          
-          
-          for(int i=0;i<k;i++)
-          {
-              int a = pq.top();
-              pq.pop();
-              
-              a--;
-              if(a>0){
-                  pq.push(a);
-                  
-              }
+          return 0;
+      }
+      int wordBreak(int n, string s, vector<string> &dictionary) {
+          //code here
+          set<string>st;
+          for(auto a:dictionary){
+              st.insert(a);
           }
-          
-          
-        int minValue = 0;
-          while(!pq.empty()) {
-              minValue += pq.top() * pq.top();
-              pq.pop();
-          }
-        return minValue;  
+          return help(0,s,st);
       }
   };
+
   ```
