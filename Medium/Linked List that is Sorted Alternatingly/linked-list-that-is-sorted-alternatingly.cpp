@@ -12,8 +12,7 @@ struct Node
 	    next = NULL;
 	}
 };
-
-void sort(Node **head);
+/* Function to print linked list */
 
 
 void append(struct Node** headRef, struct Node** tailRef, int newData)
@@ -42,6 +41,43 @@ void printList(Node *head)
 	cout << endl;
 }
 
+
+
+// } Driver Code Ends
+
+
+
+class Solution
+{
+public:
+    // Function to sort a linked list using Bubble Sort
+    void sort(Node **head)
+    {
+        if (*head == nullptr || (*head)->next == nullptr) {
+            return; // If the list is empty or has only one element, it's already sorted
+        }
+
+        bool swapped;
+        Node *temp;
+        do {
+            swapped = false;
+            temp = *head;
+
+            while (temp->next != nullptr) {
+                if (temp->data > temp->next->data) {
+                    // Swap data if the current element is greater than the next
+                    int t = temp->data;
+                    temp->data = temp->next->data;
+                    temp->next->data = t;
+                    swapped = true;
+                }
+                temp = temp->next;
+            }
+        } while (swapped);
+    }
+};
+
+//{ Driver Code Starts.
 int main()
 {
 	int test;
@@ -56,49 +92,11 @@ int main()
 	        cin>>k;
 	        append(&head, &tail, k);
 	    }
-	    sort(&head);
+	    Solution ob;
+	    ob.sort(&head);
 	    printList(head);
 	}
 	return 0;
 }
 
 // } Driver Code Ends
-
-
-/*Structure of Node of the linked list is as
-struct Node
-{
-	int data;
-	struct Node *next;
-	
-	Node(int x){
-	    data =x;
-	    next = NULL;
-	}
-};
-*/
-// your task is to complete this function
-    void sort(Node **head) {
-    if (*head == nullptr || (*head)->next == nullptr) {
-        return; // If the list is empty or has only one element, it's already sorted
-    }
-
-    bool swapped;
-    Node *temp;
-    do {
-        swapped = false;
-        temp = *head;
-
-        while (temp->next != nullptr) {
-            if (temp->data > temp->next->data) {
-                // Swap data if the current element is greater than the next
-                int t = temp->data;
-                temp->data = temp->next->data;
-                temp->next->data = t;
-                swapped = true;
-            }
-            temp = temp->next;
-        }
-    } while (swapped);
-}
-
