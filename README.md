@@ -1,5 +1,5 @@
 # gfg-podt 23/07/2024
-# "GFG PODT  with my approch!!"  -> Solution
+# "GFG PODT  with my approch!!"  -> [Solution](https://github.com/theprince29/gfg-podt/blob/main/Difficulty%3A%20Medium/Merge%20two%20BST%20's/merge-two-bst-s.cpp)
 
 
 <h2><a href="https://www.geeksforgeeks.org/problems/merge-two-bst-s/1">Merge two BST 's</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given two BSTs, return elements of merged BSTs in <strong>sorted </strong>form.</span></p>
