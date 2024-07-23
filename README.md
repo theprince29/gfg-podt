@@ -1,46 +1,41 @@
 # gfg-podt 2/03/2024
-# "GFG PODT  with my approch!!"  -> [Solution](https://github.com/theprince29/gfg-podt/blob/main/Easy/First%20element%20to%20occur%20k%20times/first-element-to-occur-k-times.cpp)
+# "GFG PODT  with my approch!!"  -> Solution
 
-<h2><a href="https://www.geeksforgeeks.org/problems/first-element-to-occur-k-times5150/1">First element to occur k times</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given an array of <strong>n</strong> integers. Find the first element that occurs <strong>atleast k</strong> number of times.</span></p>
-<p><span style="font-size: 18px;"><strong>Example 1:</strong></span></p>
-<pre><span style="font-size: 18px;"><strong>Input :</strong>
-n = 7, k = 2
-a[] = {1, 7, 4, 3, 4, 8, 7}
-<strong>Output :</strong>
-4
-<strong>Explanation :</strong>
-Both 7 and 4 occur 2 times. But 4 is first that occurs twice.
-As at <strong>index = 4</strong>, 4 has occurred twice whereas 7 appeared twice<br>at index 6.</span></pre>
-<p><strong><span style="font-size: 18px;">Example 2:</span></strong></p>
-<pre><strong><span style="font-size: 18px;">Input :</span></strong><span style="font-size: 18px;"><br>n = 10, k = 3<br>a</span><span style="font-size: 18px;">[] = {3, 1, 3, 4, 5, 1, 3, 3, 5, 4}<br></span><strong style="font-size: 18px;">Output :<br></strong><span style="font-size: 18px;">3<br></span><strong style="font-size: 18px;">Explanation :<br></strong><span style="font-size: 18px;">Here, 3 is the only number that appeared 3 times in the array.</span></pre>
-<p><span style="font-size: 18px;"><strong>Your Task:&nbsp;&nbsp;</strong><br>You don't need to read input or print anything. Your task is to complete the function&nbsp;<strong>firstElementKTime()</strong> which takes the array <strong>a</strong><strong>[]</strong>, its size <strong>n</strong><strong>,&nbsp;</strong>and an integer <strong>k</strong><strong>&nbsp;</strong>as input arguments and <strong>returns</strong> the required answer. If the answer is not present in the array, return <strong>-1</strong>.</span></p>
-<p><span style="font-size: 18px;"><strong>Expected Time Complexity:</strong> O(n).<br><strong>Expected Auxiliary Space:</strong> O(n).</span></p>
-<p><span style="font-size: 18px;"><strong>Constraints:</strong><br>1 &lt;= n &lt;= 10<sup>4</sup><br>1 &lt;= k &lt;= 100<br>1&lt;= a[i] &lt;= 200</span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Arrays</code>&nbsp;<code>Hash</code>&nbsp;<code>Data Structures</code>&nbsp;
-  
-  ```
-  class Solution{
-    public:
-    int firstElementKTime(int n, int k, int a[])
-    {
-     unordered_map<int,int>mp;
-     for(int i=0;i<n;i++)
-     {
-         mp[a[i]]++;
-         if(mp[a[i]]>=k)
-         {
-             break;
-         }
-     }
-     
-     for(auto x:mp)
-     {
-         if(x.second>=k)
-         {
-             return x.first;
-         }
-     }
-     
-     return -1;
-    }
-};
-  ```
+
+<h2><a href="https://www.geeksforgeeks.org/problems/merge-two-bst-s/1">Merge two BST 's</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given two BSTs, return elements of merged BSTs in <strong>sorted </strong>form.</span></p>
+<p><span style="font-size: 18px;"><strong>Examples :</strong></span></p>
+<pre><span style="font-size: 18px;"><strong>Input:
+</strong>BST1:
+       5
+&nbsp;    /   \
+&nbsp;   3     6
+&nbsp;  / \
+&nbsp; 2   4  
+BST2:<strong>
+&nbsp;       </strong>2
+&nbsp;     /   \
+&nbsp;    1     3
+&nbsp;           \
+&nbsp;            7
+&nbsp;           /
+&nbsp;          6
+<strong>Output: </strong>1 2 2 3 3 4 5 6 6 7<strong>
+Explanation: </strong>After merging and sorting the two BST we get 1 2 2 3 3 4 5 6 6 7.</span>
+</pre>
+<pre><span style="font-size: 18px;"><strong>Input:
+</strong>BST1:<strong>
+&nbsp;      </strong>12
+&nbsp;    /   
+&nbsp;   9
+&nbsp;  / \ &nbsp;  
+&nbsp; 6   11
+BST2:<strong>
+&nbsp;     </strong>8
+&nbsp;   /  \
+&nbsp;  5    10
+&nbsp; /
+&nbsp;2
+<strong>Output: </strong>2 5 6 8 9 10 11 12<strong>
+Explanation: </strong>After merging and sorting the two BST we get 2 5 6 8 9 10 11 12.</span></pre>
+<p><span style="font-size: 18px;"><strong>Expected Time Complexity:&nbsp;</strong>O(m+n)<br><strong>Expected Auxiliary Space:&nbsp;</strong>O(Height of BST1 + Height of BST2 + m + n)</span></p>
+<p><span style="font-size: 18px;"><strong>Constraints:</strong><br>1 ≤ Number of Nodes ≤ 10<sup>5</sup></span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Binary Search Tree</code>&nbsp;<code>Tree</code>&nbsp;<code>Data Structures</code>&nbsp;  
