@@ -21,7 +21,6 @@ class Solution
     {
         //code here
         int j = i;
-        
         while (j > 0 && arr[j - 1] > arr[j]) {
             int temp = arr[j - 1];
             arr[j - 1] = arr[j];
@@ -31,14 +30,20 @@ class Solution
         
     }
      public:
+     
+     
+     void fun (int arr [],int  i ,int  n )
+     {
+         if(i==n) return;
+         insert(arr, i);
+         fun(arr, i+1,n);
+     }
+     
     //Function to sort the array using insertion sort algorithm.
     void insertionSort(int arr[], int n)
     {
         //code here
-        for(int i =0; i <n;i++)
-        {
-            insert(arr,i);
-        }
+        fun(arr, 0 , n) ;
     }
 };
 
