@@ -22,16 +22,19 @@ class Solution {
     // Function to sort the array using bubble sort algorithm.
     void bubbleSort(int arr[], int n) {
         // Your code here
-        for(int i= n-1 ; i >=1 ;i--)
-        {
-            for(int j = 0 ; j< i ;j++)
+        
+        if(n == 1) return;
+        
+        
+        for(int j = 1 ; j<n ;j++)
             {
-                if(arr[j+1]< arr[j])
+                if(arr[j]< arr[j-1])
                 {
-                    swap(arr[j+1],arr[j]);
+                    swap(arr[j-1],arr[j]);
                 }
             }
-        }
+        
+        bubbleSort(arr,n-1);
     }
 };
 
