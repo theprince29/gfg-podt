@@ -4,37 +4,51 @@ using namespace std;
 
 
 // } Driver Code Ends
+
+
+
 class Solution {
-  public:
-    // Function to return max value that can be put in knapsack of capacity W.
-  vector<vector<int>> memo;
-
-    int knapsackhelper(int index, int W, vector<int>& wt, vector<int>& val) {
-        if (index == 0 ) {
-            return 0;
-        }
-
-        if (memo[index][W] != -1) {
-            return memo[index][W];
-        }
-
-        int ans = 0;
-        if (wt[index - 1] <= W) {
-            ans += val[index - 1] + knapsackhelper(index - 1, W - wt[index - 1], wt, val);
-            } 
-            ans = max(ans,knapsackhelper(index - 1, W, wt, val));
+public:
+  
+    vector<vector<int>> dp;
     
-
-        memo[index][W] = ans;
-        return ans;
+    
+    int f(int ind, vector<int>& wt, vector<int>& val, int W) {
+        // Base case
+        if (ind == 0) {
+            if (wt[0] <= W) return val[0];
+            else return 0;
+        }
+        
+       
+        if (dp[ind][W] != -1) return dp[ind][W];
+        
+        // Option 1: Not take the current item
+        int nottake = f(ind - 1, wt, val, W);
+        
+        // Option 2: Take the current item (if it can fit into the knapsack)
+        int take = 0;
+        if (wt[ind] <= W) {
+            take = val[ind] + f(ind - 1, wt, val, W - wt[ind]);
+        }
+        
+        // Store and return the maximum of taking and not taking the item
+        return dp[ind][W] = max(take, nottake);
     }
-
+    
     int knapSack(int W, vector<int>& wt, vector<int>& val) {
-        int n = val.size();
-        memo.resize(n + 1, vector<int>(W + 1, -1));
-        return knapsackhelper(n, W, wt, val);
+        int n = wt.size();
+        
+        // Initialize the memoization table with -1 (indicating uncalculated states)
+        dp = vector<vector<int>>(n, vector<int>(W + 1, -1));
+        
+        // Call the recursive function starting from the last item
+        return f(n - 1, wt, val, W);
     }
 };
+
+
+
 
 
 
