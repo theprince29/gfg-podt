@@ -95,26 +95,28 @@ struct Node {
 class Solution {
   public:
     // Function to return a list of integers denoting the node
-    
-    void func(Node *root,vector<int>& ans)
-    {
-        if(root == NULL)
-         return;
-         
-        func(root->left,ans);
-        ans.push_back(root->data);
-        func(root->right,ans);
-        
-    }
     // values of both the BST in a sorted order.
-    vector<int> merge(Node *root1, Node *root2) {
-        // Your code here
-        vector<int>ans;
-        func(root1,ans);
-        func(root2,ans);
-        sort(ans.begin(),ans.end());
+    void func(Node* root,vector<int>&ls)
+    {
+        if(root == NULL) return;
         
-        return ans;
+        func(root->left,ls);
+        ls.push_back(root->data);
+        func(root->right,ls);
+    }
+    
+    
+    vector<int> merge(Node *root1, Node *root2) {
+        
+        // Your code here
+        vector<int>ls;
+        func(root1,ls);
+        func(root2,ls);
+        
+        
+        sort(ls.begin(),ls.end());
+        return ls;
+        
     }
 };
 
