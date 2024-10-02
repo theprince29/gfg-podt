@@ -5,33 +5,44 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
-  public:
-    int helper(int idx1, int idx2, string &s1, string &s2, int &maxLen, vector<vector<int>> &dp) {
-        if (idx1 < 0 || idx2 < 0) return 0;
-        if (dp[idx1][idx2] != -1) return dp[idx1][idx2];
-        
-        helper(idx1 - 1, idx2, s1, s2, maxLen, dp);
-        helper(idx1, idx2 - 1, s1, s2, maxLen, dp);
-        
-        if (s1[idx1] == s2[idx2]) {
-            dp[idx1][idx2] = 1 + helper(idx1 - 1, idx2 - 1, s1, s2, maxLen, dp);
-            maxLen = max(maxLen, dp[idx1][idx2]);
-            return dp[idx1][idx2];
+    
+    private:
+    int fun(int ind1, int ind2, string &str1, string &str2, vector<vector<int>>& dp, int &maxLength) {
+        if (ind1 < 0 || ind2 < 0) return 0;
+    
+        if (dp[ind1][ind2] != -1) return dp[ind1][ind2];
+    
+        if (str1[ind1] == str2[ind2]) {
+            dp[ind1][ind2] = 1 + fun(ind1 - 1, ind2 - 1, str1, str2, dp, maxLength);
+            maxLength = max(maxLength, dp[ind1][ind2]);
+            return dp[ind1][ind2];
         } else {
-            dp[idx1][idx2] = 0;
-            return 0;
+            dp[ind1][ind2] = 0; 
+            return dp[ind1][ind2];
+        }
+    }
+    
+    
+    
+    
+    
+  public:
+    int longestCommonSubstr(string str1, string str2) {
+    int n1 = str1.length();
+    int n2 = str2.length();
+
+    vector<vector<int>> dp(n1, vector<int>(n2, -1));
+    int maxLength = 0; 
+
+    for (int i = 0; i < n1; ++i) {
+        for (int j = 0; j < n2; ++j) {
+            fun(i, j, str1, str2, dp, maxLength);
         }
     }
 
-    int longestCommonSubstr(string str1, string str2) {
-        int n = str1.length(), m = str2.length();
-        int maxLen = 0;
-        vector<vector<int>> dp(n, vector<int>(m, -1));
-        helper(n - 1, m - 1, str1, str2, maxLen, dp);
-        return maxLen;
+    return maxLength; 
     }
-};    
-    
+};
 
 //{ Driver Code Starts.
 
